@@ -1,0 +1,19 @@
+version: 2.1
+
+jobs:
+  test:
+    docker:
+      - image: circleci/node
+    steps:
+      - run:
+          name: install packages
+          command: npm install
+      - run:
+          name: Run Tests
+          command: npm run test
+
+workflows:
+  test_my_app:
+    jobs:
+      - test
+
